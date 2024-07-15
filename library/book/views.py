@@ -40,8 +40,16 @@ class BookRegistration(View):
         if form.is_valid():
             form.save()
         messages.success(request, 'Book Saved')
+        return redirect('book:register_book')
 
 
+class BookList(View):
+    def get(self, request):
+        queryset = Book.objects.all()
+        context = {
+            'book_list':queryset
+        }
+        return render(request, 'book/book_list.html', context)
 
 
 class AuthorRegistration(View):
@@ -57,4 +65,5 @@ class AuthorRegistration(View):
         if form.is_valid():
             form.save()
         messages.success(request, 'Author Saved')
+        return redirect('book:author_register')
 
