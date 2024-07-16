@@ -47,9 +47,19 @@ class BookList(View):
     def get(self, request):
         queryset = Book.objects.all()
         context = {
-            'book_list':queryset
+            'book_list':queryset,
+            # 'authors':author
         }
         return render(request, 'book/book_list.html', context)
+    
+
+class BookDetails(View):
+    def get(self, request, id):
+        queryset = Book.objects.get(id=id)
+        context = {
+            'book': queryset
+        }
+        return render(request, 'book/book_details.html', context)
 
 
 class AuthorRegistration(View):

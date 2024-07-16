@@ -10,6 +10,8 @@
 <form action="{% url 'book:register_book' %}" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
+    <label for="multiple-input">Enter multiple values:</label>
+                <input type="text" class="form-control" id="multiple-input" name="multiple-input" placeholder="Enter multiple values separated by commas">
     <button type="submit">Save</button>
 </form>
 {% endblock %}

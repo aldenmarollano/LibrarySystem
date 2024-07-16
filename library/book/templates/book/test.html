@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Input Text Field</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Custom styles -->
+    <style>
+        .input-container {
+            margin-bottom: 10px; /* Adjust spacing between inputs */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <form id="inputForm">
+            <div id="inputContainer">
+                <!-- Inputs will be dynamically added here -->
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies (Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        $(document).ready(function() {
+            let inputCount = 0;
+
+            // Function to add new input field
+            function addInputField() {
+                inputCount++;
+                let inputHtml = `<div class="input-container">
+                                    <input type="text" class="form-control" name="input${inputCount}" placeholder="Enter value ${inputCount}">
+                                 </div>`;
+                $('#inputContainer').append(inputHtml);
+            }
+
+            // Initial add of input field
+            addInputField();
+
+            // Handle form submission
+            $('#inputForm').submit(function(event) {
+                event.preventDefault();
+                // You can handle form submission here if needed
+                console.log('Form submitted');
+                // Optionally clear inputs after submission
+                // $('#inputContainer').empty();
+            });
+
+            // Optional: Add button to dynamically add more input fields
+            $('#addInputBtn').click(function() {
+                addInputField();
+            });
+        });
+    </script>
+</body>
+</html>

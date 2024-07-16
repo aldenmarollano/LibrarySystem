@@ -5,7 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
- 
+  
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -168,7 +168,19 @@ figure {
 
 img {
   vertical-align: middle;
-  border-style: none; }
+  border-style: none;
+  background-size: contain;
+}
+
+.img_size{
+  background-image: url('../images/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  width: 200px;
+  height: 200px;
+  padding: auto;
+}
 
 svg {
   overflow: hidden;
@@ -8215,9 +8227,9 @@ h1, h2, h3, h4, h5,
   width: 100%; }
 
 #sidebar {
-  min-width: 300px;
-  max-width: 300px;
-  background: #1d1919;
+  min-width: 280px;
+  max-width: 280px;
+  background: #004951;
   color: #fff;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
@@ -8226,11 +8238,12 @@ h1, h2, h3, h4, h5,
     margin-left: -300px; }
   #sidebar .logo {
     display: block;
-    width: 75%;
+    width: 70%;
     height: 150px;
     margin: 0 auto; }
     #sidebar .logo span {
       display: block; }
+      
   #sidebar ul.components {
     padding: 0; }
   #sidebar ul li {
@@ -8288,3 +8301,10 @@ a[data-toggle="collapse"] {
 
 .footer p {
   color: rgba(255, 255, 255, 0.5); }
+
+  .search_bar{
+    /* margin: auto; */
+    margin-left: 20px;
+    margin-bottom: 1px;
+    width: 65%;
+  }

@@ -1,20 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Book</h1>
-<table>
-    <thead>
+<table class="table table-striped">
+    <thead class="">
         <th>ID</th>
         <th>Title</th>
+        <th>Category</th>
         <th>Author</th>
     </thead>
     <tbody>
     {% for book in book_list %}
         <tr>
             <td>{{ book.id }}</td>
-            <td>{{ book.title }}</td>
+            <td><a href="{% url 'book:book_detail' book.id %}">{{ book.title }}</a></td>
             <td>{{ book.category }}</td>
+            <td>
+                {% for author in book.author.all %}
+                    {{ author }}
+                    {% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </td>
         </tr>
     {% endfor %}
     </tbody>
-</table>
+</table>        
 {% endblock %}
